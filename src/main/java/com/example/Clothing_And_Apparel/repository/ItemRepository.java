@@ -1,7 +1,6 @@
 package com.example.Clothing_And_Apparel.repository;
 
 import com.example.Clothing_And_Apparel.model.Item;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 

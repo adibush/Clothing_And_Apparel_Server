@@ -13,10 +13,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+
 @EnableWebSecurity
 @Configuration
 public class SecurityConfigure extends WebSecurityConfigurerAdapter {
-
 
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
@@ -24,11 +24,11 @@ public class SecurityConfigure extends WebSecurityConfigurerAdapter {
     @Autowired
     private JwtRequestFilter jwtRequestFilter;
 
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth.userDetailsService(customUserDetailsService);
     }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()

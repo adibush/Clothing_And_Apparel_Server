@@ -1,15 +1,11 @@
 package com.example.Clothing_And_Apparel.repository;
 
-import com.example.Clothing_And_Apparel.model.Item;
-import com.example.Clothing_And_Apparel.model.ItemOrders;
 import com.example.Clothing_And_Apparel.model.Orders;
-import com.example.Clothing_And_Apparel.repository.mapper.ItemMapper;
 import com.example.Clothing_And_Apparel.repository.mapper.OrdersMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
-
 import java.util.List;
 
 @Repository
@@ -22,10 +18,10 @@ public class OrderRepositoryImpl implements OrderRepository{
 
 
     @Override
-    public Long postOrders(Orders orders) {
+    public Long postOrders(Orders orders,String userName) {
         String sql = String.format("INSERT INTO %s (user_name,date_time, shipping_address,total_price,status) VALUES (?,?,?,?,?)", ORDERS_TABLE);
         jdbcTemplate.update(sql,
-                orders.getUserName(),
+                userName,
                 orders.getDateTime(),
                 orders.getShippingAddress(),
                 orders.getTotalPrice(),
@@ -35,9 +31,9 @@ public class OrderRepositoryImpl implements OrderRepository{
 
 
     @Override
-    public void deleteOrdersById(int id) {
-        String sql = String.format("DELETE FROM %s WHERE id = ?",ORDERS_TABLE);
-        jdbcTemplate.update(sql,id);
+    public void deleteOrdersByUserName(String userName) {
+        String sql = String.format("DELETE FROM %s WHERE user_name = ?",ORDERS_TABLE);
+        jdbcTemplate.update(sql,userName);
 
 
     }

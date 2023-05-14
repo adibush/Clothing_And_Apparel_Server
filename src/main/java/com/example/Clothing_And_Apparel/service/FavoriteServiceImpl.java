@@ -2,7 +2,6 @@ package com.example.Clothing_And_Apparel.service;
 
 import com.example.Clothing_And_Apparel.model.Favorite;
 import com.example.Clothing_And_Apparel.repository.FavoriteRepository;
-import com.example.Clothing_And_Apparel.repository.ItemOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +16,8 @@ public class FavoriteServiceImpl implements FavoriteService{
 
 
     @Override
-    public void postFavoriteItem(Favorite favorite) {
-        favoriteRepository.postFavoriteItem(favorite);
+    public void postFavoriteItem(Favorite favorite,String userName) {
+        favoriteRepository.postFavoriteItem(favorite,userName);
 
     }
 

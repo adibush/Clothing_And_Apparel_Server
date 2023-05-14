@@ -16,7 +16,7 @@ public class CustomUser {
     private String phone;
     private String address;
 
-    public CustomUser( int id, String firstName, String lastName, String userName, String password, String email, String phone, String address) {
+    public CustomUser(int id, String firstName, String lastName, String userName, String password, String email, String phone, String address) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;

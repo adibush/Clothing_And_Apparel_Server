@@ -1,8 +1,6 @@
 package com.example.Clothing_And_Apparel.repository;
 
-import com.example.Clothing_And_Apparel.model.Item;
 import com.example.Clothing_And_Apparel.model.ItemOrders;
-import com.example.Clothing_And_Apparel.repository.mapper.ItemMapper;
 import com.example.Clothing_And_Apparel.repository.mapper.ItemOrdersMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -22,12 +20,12 @@ public class ItemOrderRepositoryImpl implements  ItemOrderRepository {
 
 
     @Override
-    public void postItemOrders(ItemOrders itemOrders) {
+    public void postItemOrders(ItemOrders itemOrders,String userName) {
         String sql = String.format("INSERT INTO %s (orders_id, item_id,user_name,title,price,image,status) VALUES (?,?,?,?,?,?,?)", ITEM_ORDERS_TABLE);
         jdbcTemplate.update(sql,
                 itemOrders.getOrdersId(),
                 itemOrders.getItemId(),
-                itemOrders.getUserName(),
+                userName,
                 itemOrders.getTitle(),
                 itemOrders.getPrice(),
                 itemOrders.getImage(),
@@ -38,17 +36,21 @@ public class ItemOrderRepositoryImpl implements  ItemOrderRepository {
     public void deleteItemOrdersByItemId(int itemId) {
         String sql = String.format("DELETE FROM %s WHERE item_id = ? AND status='TEMP' ",ITEM_ORDERS_TABLE);
         jdbcTemplate.update(sql,itemId);
-
-
     }
 
     @Override
-    public void updateItemOrders(ItemOrders itemOrders) {
+    public void deleteItemOrdersByUserName(String userName) {
+        String sql =String.format("DELETE FROM %s WHERE user_name=? ",ITEM_ORDERS_TABLE);
+        jdbcTemplate.update(sql,userName);
+    }
+
+    @Override
+    public void updateItemOrders(ItemOrders itemOrders,String userName) {
         String sql = String.format("UPDATE %s SET orders_id = ?,status =? WHERE  user_name=? AND status='TEMP' ",ITEM_ORDERS_TABLE);
         jdbcTemplate.update(sql,
                 itemOrders.getOrdersId(),
                 itemOrders.getStatus().name(),
-                itemOrders.getUserName());
+                userName);
 
     }
 

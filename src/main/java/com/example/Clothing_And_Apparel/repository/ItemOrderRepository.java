@@ -7,11 +7,13 @@ import java.util.List;
 
 public interface ItemOrderRepository {
 
-    void postItemOrders(ItemOrders itemOrders);
+    void postItemOrders(ItemOrders itemOrders,String userName);
 
     void deleteItemOrdersByItemId(int itemId);
 
-    void updateItemOrders(ItemOrders itemOrders);
+    void deleteItemOrdersByUserName(String userName);
+
+    void updateItemOrders(ItemOrders itemOrders,String userName);
 
     List<ItemOrders> getItemOrdersByUserName(String userName);
 

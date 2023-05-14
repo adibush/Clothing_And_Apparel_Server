@@ -8,7 +8,7 @@ public interface CustomUserRepository {
 
     void postUser(CustomUser customUser);
 
-    void deleteUserById(int id);
+    void deleteUserByUserName(String userName);
 
     void updateUser(CustomUser customUser);
 

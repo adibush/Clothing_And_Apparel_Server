@@ -2,6 +2,9 @@ package com.example.Clothing_And_Apparel.service;
 
 import com.example.Clothing_And_Apparel.model.CustomUser;
 import com.example.Clothing_And_Apparel.repository.CustomUserRepository;
+import com.example.Clothing_And_Apparel.repository.FavoriteRepository;
+import com.example.Clothing_And_Apparel.repository.ItemOrderRepository;
+import com.example.Clothing_And_Apparel.repository.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +16,18 @@ public class CustomUserServiceImpl implements CustomUserService {
     @Autowired
     CustomUserRepository customUserRepository;
 
+    @Autowired
+    FavoriteRepository favoriteRepository;
+
+    @Autowired
+    ItemOrderRepository itemOrderRepository;
+
+    @Autowired
+    OrderRepository orderRepository;
+
+
+
+
     @Override
     public void postUser(CustomUser customUser) throws Exception {
         CustomUser existingCustomUser = customUserRepository.findUserByUsername(customUser.getUserName());
@@ -23,8 +38,11 @@ public class CustomUserServiceImpl implements CustomUserService {
     }
 
     @Override
-    public void deleteUserById(int id) {
-        customUserRepository.deleteUserById(id);
+    public void deleteUserByUserName(String userName) {
+        customUserRepository.deleteUserByUserName(userName);
+        favoriteRepository.deleteFavoriteItemByUserName(userName);
+        itemOrderRepository.deleteItemOrdersByUserName(userName);
+        orderRepository.deleteOrdersByUserName(userName);
 
     }
 

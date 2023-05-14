@@ -20,13 +20,15 @@ public class OrderController {
 
     @PostMapping(value = "/create")
     @CrossOrigin
-    public Long postOrders(@RequestBody Orders orders) {
-        return orderService.postOrders(orders);
+    public Long postOrders(@RequestBody Orders orders,@RequestParam(value = "Authorization")String token) {
+        String jwt =token.substring(7);
+        String userName = jwtUtil.extractUsername(jwt);
+        return orderService.postOrders(orders,userName);
     }
 
     @DeleteMapping(value = "/delete")
-    public void deleteOrders (@RequestParam Integer id){
-        orderService.deleteOrdersById(id);
+    public void deleteOrders (@RequestParam String userName){
+        orderService.deleteOrdersByUserName(userName);
     }
 
     @PutMapping(value = "/update")

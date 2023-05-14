@@ -8,7 +8,7 @@ import java.util.List;
 public interface FavoriteRepository {
 
 
-    void postFavoriteItem(Favorite favorite);
+    void postFavoriteItem(Favorite favorite,String userName);
 
     void deleteFavoriteItemByUserName(String userName);
 

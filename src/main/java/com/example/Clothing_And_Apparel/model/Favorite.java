@@ -30,6 +30,9 @@ public class Favorite {
         this.itemStock = itemStock;
     }
 
+    public Favorite() {
+    }
+
     public int getId() {
         return id;
     }

@@ -72,11 +72,6 @@ VALUES ('shoes','59.99', 'https://i.ebayimg.com/thumbs/images/g/rEoAAOSwgbRc-e0u
 
 
 
-INSERT into users (user_name,password)
-VALUES('adi123','adi123123')
-
-
-
 
 
 

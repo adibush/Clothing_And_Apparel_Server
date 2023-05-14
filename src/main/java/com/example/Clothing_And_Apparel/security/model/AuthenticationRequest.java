@@ -1,6 +1,7 @@
 package com.example.Clothing_And_Apparel.security.model;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 
 import java.io.Serializable;
@@ -28,7 +29,6 @@ public class AuthenticationRequest implements Serializable {
 
     //need default constructor for JSON Parsing
     public AuthenticationRequest() {}
-
     public AuthenticationRequest( String username, String password) {
         this.setUsername(username);
         this.setPassword(password);

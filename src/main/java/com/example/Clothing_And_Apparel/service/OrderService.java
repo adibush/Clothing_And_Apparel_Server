@@ -6,9 +6,9 @@ import java.util.List;
 
 public interface OrderService {
 
-    Long postOrders(Orders orders);
+    Long postOrders(Orders orders,String userName);
 
-    void deleteOrdersById(int id);
+    void deleteOrdersByUserName(String userName);
 
     void updateOrders(Orders orders);
 

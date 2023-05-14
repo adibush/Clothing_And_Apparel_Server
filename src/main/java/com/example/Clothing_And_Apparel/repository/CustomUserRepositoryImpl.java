@@ -33,9 +33,9 @@ public class CustomUserRepositoryImpl implements CustomUserRepository {
     }
 
     @Override
-    public void deleteUserById(int id) {
-        String sql = String.format("DELETE FROM %s WHERE id = ?", USER_TABLE);
-        jdbcTemplate.update(sql, id);
+    public void deleteUserByUserName(String userName) {
+        String sql = String.format("DELETE FROM %s WHERE user_name = ?", USER_TABLE);
+        jdbcTemplate.update(sql, userName);
 
     }
 

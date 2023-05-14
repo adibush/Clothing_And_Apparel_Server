@@ -21,11 +21,11 @@ public class FavoriteRepositoryImpl implements  FavoriteRepository{
 
 
     @Override
-    public void postFavoriteItem(Favorite favorite) {
+    public void postFavoriteItem(Favorite favorite,String userName) {
         String sql = String.format("INSERT INTO %s ( item_id,user_name,title, price,image, item_stock) VALUES (?,?,?,?,?,?)", FAVORITE);
         jdbcTemplate.update(sql,
                 favorite.getItemId(),
-                favorite.getUserName(),
+                userName,
                 favorite.getTitle(),
                 favorite.getPrice(),
                 favorite.getImage(),

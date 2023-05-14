@@ -16,14 +16,14 @@ public class OrderServiceImpl implements OrderService{
 
 
     @Override
-    public Long postOrders(Orders orders) {
-        return orderRepository.postOrders(orders);
+    public Long postOrders(Orders orders,String userName) {
+        return orderRepository.postOrders(orders,userName);
 
     }
 
     @Override
-    public void deleteOrdersById(int id) {
-        orderRepository.deleteOrdersById(id);
+    public void deleteOrdersByUserName(String userName) {
+        orderRepository.deleteOrdersByUserName(userName);
 
     }
 

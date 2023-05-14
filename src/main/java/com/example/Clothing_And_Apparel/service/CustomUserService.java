@@ -8,7 +8,7 @@ public interface CustomUserService {
 
     void postUser(CustomUser customUser) throws Exception;
 
-    void deleteUserById(int id);
+    void deleteUserByUserName(String userName);
 
     void updateUser(CustomUser customUser);
 

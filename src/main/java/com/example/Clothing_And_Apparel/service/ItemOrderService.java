@@ -5,11 +5,13 @@ import com.example.Clothing_And_Apparel.model.ItemOrders;
 import java.util.List;
 
 public interface ItemOrderService {
-    void postItemOrders(ItemOrders itemOrders);
+    void postItemOrders(ItemOrders itemOrders,String userName);
 
     void deleteItemOrdersByItemId(int userId);
 
-    void updateItemOrders(ItemOrders itemOrders);
+    void deleteItemOrdersByUserName(String userName);
+
+    void updateItemOrders(ItemOrders itemOrders,String userName);
 
     List<ItemOrders> getItemOrdersByUserName(String userName);
 

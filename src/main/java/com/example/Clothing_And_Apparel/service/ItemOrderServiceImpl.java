@@ -14,8 +14,8 @@ public class ItemOrderServiceImpl implements ItemOrderService{
     @Autowired
     ItemOrderRepository itemOrderRepository;
     @Override
-    public void postItemOrders(ItemOrders itemOrders) {
-        itemOrderRepository.postItemOrders(itemOrders);
+    public void postItemOrders(ItemOrders itemOrders,String userName) {
+        itemOrderRepository.postItemOrders(itemOrders,userName);
 
     }
 
@@ -26,8 +26,13 @@ public class ItemOrderServiceImpl implements ItemOrderService{
     }
 
     @Override
-    public void updateItemOrders(ItemOrders itemOrders) {
-        itemOrderRepository.updateItemOrders(itemOrders);
+    public void deleteItemOrdersByUserName(String userName) {
+        itemOrderRepository.deleteItemOrdersByUserName(userName);
+    }
+
+    @Override
+    public void updateItemOrders(ItemOrders itemOrders,String userName) {
+        itemOrderRepository.updateItemOrders(itemOrders,userName);
 
     }
 
